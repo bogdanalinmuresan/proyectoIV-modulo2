@@ -1,7 +1,10 @@
 #Merka
 
-##Participante
-###Bogdan Alin Muresan
+##Participantes:
+##Bogdan Alin Muresan
+
+##Angel Vlera Motos
+
 -------
 
 
