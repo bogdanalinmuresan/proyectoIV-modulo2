@@ -3,7 +3,7 @@
 ##Participantes:
 ##Bogdan Alin Muresan
 
-##Angel Valera Motos
+##Ángel Valera Motos
 
 -------
 
