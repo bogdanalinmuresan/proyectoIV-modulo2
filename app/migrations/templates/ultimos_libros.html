@@ -1,0 +1,16 @@
+{# La plantilla #}
+
+<html>
+<head>
+	<title>Libros</title>
+</head> 
+<body>
+<h1>Libros</h1> 
+<ul>
+{% for libro in lista_libros %} 
+<li>{{ libro.nombre }}</li>
+{% endfor %} 
+</ul>
+</body>
+
+</html>
