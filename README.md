@@ -1,5 +1,8 @@
 ## **Proyecto de infraestructura virtual junto con desarrollo de aplicaciones para Internet** ##
 
+[![Build Status](https://travis-ci.org/bogdananas/proyectoIV-modulo2.svg?branch=master)](https://travis-ci.org/bogdananas/proyectoIV-modulo2)
+
+
 ## **Hito 1: Merka** ##
 
 ### **Participantes:** ###
@@ -24,4 +27,20 @@ Estamos inscritos en el certamen de proyectos de la UGR organizado por la OSL.
 
 
 ## **Hito 2: Merka** ##
-[![Build Status](https://travis-ci.org/bogdananas/proyectoIV-modulo2.svg?branch=master)](https://travis-ci.org/bogdananas/proyectoIV-modulo2)
+
+He optado por Travis como sistema de integración contínua porque  fácil de enganchar con nuestro repositorio público de Github.
+Para ello he dado de alta el proyecto y he configurado el archivo de configuración .travis.yml
+
+
+```
+language: python
+python:
+- "2.7"
+# command to install dependencies
+install: 
+- make install
+# command to run tests
+script:
+- make test
+```
+
