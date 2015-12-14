@@ -32,7 +32,7 @@ He optado por Travis como sistema de integración contínua porque  fácil de en
 Para ello he dado de alta el proyecto y he configurado el archivo de configuración .travis.yml
 
 
-```
+``
 language: python
 python:
 - "2.7"
