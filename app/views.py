@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
@@ -23,4 +22,13 @@ def index(request):
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
 
-    return render(request, 'hello.html', context_dict)
+    return render(request, 'index.html', context_dict)
+
+def about(request):
+    return render(request,'about.html')
+
+def login(request):
+    return render(request,'login.html')
+
+def registro(request):
+    return render(request,'registro.html')

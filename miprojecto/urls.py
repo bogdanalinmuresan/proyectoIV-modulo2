@@ -1,14 +1,9 @@
-from django.conf.urls import url
-from django.conf.urls import patterns, include
+from django.conf.urls import url, patterns, include
+from app.api import UsuarioResource
 
-
-#from .views import RegistrarUsuario, RedirigirUsuario
+usuario_resource=UsuarioResource()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'tango_with_django_project_17.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    #url(r'^admin/', include(admin.site.urls)),
     url(r'^app/', include('app.urls')), # ADD THIS NEW TUPLE!
+    url(r'^api/',include(usuario_resource.urls)),
 )
