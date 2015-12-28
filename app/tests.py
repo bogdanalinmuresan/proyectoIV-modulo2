@@ -23,7 +23,7 @@ user = {
 class test(TestCase):
 	#no modificar
     def testInsertarUsuario(self):
-		usuarios.insert_one(user)
-        print("insercion correcta de un usuario en la BD .")
+            usuarios.insert_one(user)
+            print("insercion correcta de un usuario en la BD .")
 
 
