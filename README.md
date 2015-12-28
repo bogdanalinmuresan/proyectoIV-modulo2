@@ -45,14 +45,22 @@ script:
 
 ~~~
 
+##	Integración Continua
+Vamos a elegir un sistema de integración continua como travis para que cuando se realize una modificación en nuestro repositorio ,se compruebe que se han pasado los tests.
+
+
+
+
 ##Despliegue en un Paas:Heroku
 
-Elegimos Heroku como PaaS porque es el PaaS que mejor se ajusta con Django y es sencillo de usar.
+Elegimos Heroku como PaaS porque es el PaaS que mejor se adapta a nuestras necesidades , y es sencillo de usar.
 
 La aplicación funcionando [http://damp-sea-7668.herokuapp.com/app](http://damp-sea-7668.herokuapp.com/app)
 
 
 
-[Mas info]()
+[Mas info](https://github.com/bogdananas/proyectoIV-modulo2/blob/master/docs/heroku.md)
+
+
 
 
