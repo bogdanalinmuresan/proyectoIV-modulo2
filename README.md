@@ -48,6 +48,13 @@ script:
 ##	Integración Continua
 Vamos a elegir un sistema de integración continua como travis para que cuando se realize una modificación en nuestro repositorio ,se compruebe que se han pasado los tests.
 
+Creación del archivo [.travis.yml](https://github.com/bogdananas/proyectoIV-modulo2/blob/master/.travis.yml)
+
+
+Configuramos el repositorio
+
+![configuracion repo](http://i1175.photobucket.com/albums/r624/Bob_Mures/travis_repo_zpsfwsw9dis.png)
+
 
 
 
