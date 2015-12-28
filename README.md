@@ -32,15 +32,27 @@ He optado por Travis como sistema de integración contínua porque  fácil de en
 Para ello he dado de alta el proyecto y he configurado el archivo de configuración .travis.yml
 
 
-``
+~~~
 language: python
 python:
 - "2.7"
-# command to install dependencies
+#command to install dependencies
 install: 
 - make install
 # command to run tests
 script:
 - make test
-```
+
+~~~
+
+##Despliegue en un Paas:Heroku
+
+Elegimos Heroku como PaaS porque es el PaaS que mejor se ajusta con Django y es sencillo de usar.
+
+La aplicación funcionando [http://damp-sea-7668.herokuapp.com/app](http://damp-sea-7668.herokuapp.com/app)
+
+
+
+[Mas info]()
+
 
