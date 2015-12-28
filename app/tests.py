@@ -24,6 +24,6 @@ class test(TestCase):
 	#no modificar
     def testInsertarUsuario(self):
 		usuarios.insert_one(user)
-    	print("insercion correcta de un usuario en la BD .")
+        print("insercion correcta de un usuario en la BD .")
 
 
