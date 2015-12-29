@@ -28,10 +28,10 @@ Mi proyecto se va a desplegar en [heroku](https://www.heroku.com/) ([mas info](h
 
 Darse de alta el la plataforma ,asi como iniciar sesión.
 
-La base de datos usada es mongo y se aloja en un servidor ofrecido por [mongolab](https://mongolab.com/) 
+La base de datos usada es mongodb y se aloja en un servidor ofrecido por [mongolab](https://mongolab.com/) 
 
 
-El lenguaje utulizado es python y como framework utilizaremos Django.
+El lenguaje utilizado es python y como framework utilizaremos Django.
  
 
 
@@ -55,12 +55,12 @@ Elegimos Heroku como PaaS porque es el PaaS que mejor se adapta a nuestras neces
 La aplicación funcionando [http://damp-sea-7668.herokuapp.com/app](http://damp-sea-7668.herokuapp.com/app)
 
 
-
 [Mas info](https://github.com/bogdananas/proyectoIV-modulo2/blob/master/docs/heroku.md)
 
 ##Crear la base de datos:mongolab
 
-nos damos de alta en mongolab y creamos una base de datos.
+Nos damos de alta en mongolab y creamos una base de datos.
+Para la conexión a la base de datos utilizamos Pymongo
 
 ![http://i1175.photobucket.com/albums/r624/Bob_Mures/mongolab_zpsbz0cnt8t.png](http://i1175.photobucket.com/albums/r624/Bob_Mures/mongolab_zpsbz0cnt8t.png)
 

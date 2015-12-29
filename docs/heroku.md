@@ -27,36 +27,19 @@ whitenoise==2.0.6
 ~~~
 
 
-Despues de registrarnos en Heroku ejecutamos  #
-"make heroku " dentro de nuestra app
+Despues de registrarnos en Heroku ejecutamos 
+"make heroku " dentro de nuestra app para automatizar el proceso del despliegue 
  
 ~~~
 pip install django-toolbelt
 heroku login
 heroku create
 git add .
-git commit -m "despliegue en heroku"
+git commit -m "despliegue automático en heroku"
 git push heroku master
 heroku ps:scale web=1
-heroku open
+heroku open app
 ~~~
 
 La aplicación se encuentra desplegada en :[http://damp-sea-7668.herokuapp.com/app](http://damp-sea-7668.herokuapp.com/app)
-
-Finalmente configuramos el despliegue directo desde el repositorio de Github y la herramiente Snap CI para realizar el despliegue simplemente haciendo push desde el repositorio
-
-***Con Snap CI***
-
-la configuración es tan fácil como añadir nuestro repositorio de github a snap CI.
-
-![http://i1175.photobucket.com/albums/r624/Bob_Mures/editmeSnapCi_zpspjwzj8t3.png](http://i1175.photobucket.com/albums/r624/Bob_Mures/editmeSnapCi_zpspjwzj8t3.png)
-Figura en la que se configura los requisitos
-
-![http://i1175.photobucket.com/albums/r624/Bob_Mures/deploySnapCI_zpspxbchdgb.png](http://i1175.photobucket.com/albums/r624/Bob_Mures/deploySnapCI_zpspxbchdgb.png)
-
-Figura en la que se configura la configuración
-
-![http://i1175.photobucket.com/albums/r624/Bob_Mures/snapCI_zpsldwylygu.png](http://i1175.photobucket.com/albums/r624/Bob_Mures/snapCI_zpsldwylygu.png)
-
-Y ya tenemos la integración contínua que despliega la aplicación al hacer git push a nuestro repositorio de GitHub, siempre que esta pase los tests.
 
