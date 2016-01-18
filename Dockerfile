@@ -1,4 +1,4 @@
-FROM:UBUNTU:12.04
+FROM UBUNTU:12.04
 
 MAINTAINER Bogdan Alin Muresan <alinugr@gmail.com>
 
