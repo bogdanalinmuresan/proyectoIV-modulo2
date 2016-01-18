@@ -2,15 +2,14 @@ FROM ubuntu:12.04
 
 MAINTAINER Bogdan Alin Muresan <alinugr@gmail.com>
 
-#-y ejecutar sin preguntar
-RUN sudo apt-get -y update
+RUN /bin/bash sudo apt-get update
 
 #Download the app
-RUN sudo apt-get install -y git
+RUN /bin/bash sudo apt-get install -y git
 RUN sudo git clone https://github.com/bogdananas/proyectoIV-modulo2.git
 
 #instalar dependencias
-RUN sudo apt-get install -y python-setuptools
+RUN /bin/bash sudo apt-get install -y python-setuptools
 RUN sudo apt-get -y install python-dev
 RUN sudo apt-get -y install build-essential
 RUN sudo apt-get -y install python-psycopg2
