@@ -14,7 +14,7 @@ from django.conf.urls import url, patterns, include
 
 
 urlpatterns = [
-    #url(r'^$', views.libros, name='libros'),
+    #url(r'^admin', views.libros, name='libros'),
     url(r'^$', views.index, name='index'),
     url(r'^index/$', views.index, name='index'),
     url(r'^about/$',views.about,name='about'),

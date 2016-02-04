@@ -15,6 +15,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+import mongoengine
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -79,11 +80,13 @@ WSGI_APPLICATION = 'miprojecto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':'',
+    },
 }
 
+SESSION_ENGINE = 'mongoengine.django.sessions' # optional
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -109,3 +112,21 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
+
+##Conexion a la base de datos 
+##mas info (http://staltz.com/djangoconfi-mongoengine/#/17)
+AUTHENTICATION_BACKENDS = (
+    'mongoengine.django.auth.MongoEngineBackend',
+)
+
+_MONGODB_USER='bogdanaliniv15'
+_MONGODB_PASSWD='ar03pbo'
+_MONGODB_HOST='ds027495.mongolab.com:27495'
+_MONGODB_NAME='ivdai'
+_MONGODB_DATABASE_HOST=\
+    'mongodb://%s:%s@%s/%s'\
+    %(_MONGODB_USER,_MONGODB_PASSWD,_MONGODB_HOST,_MONGODB_NAME)
+
+mongoengine.connect(_MONGODB_NAME,host=_MONGODB_DATABASE_HOST)
+
+
