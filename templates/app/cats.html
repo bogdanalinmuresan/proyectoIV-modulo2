@@ -1,0 +1,20 @@
+<link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+{% if cats %}
+    <ul class="nav nav-sidebar">
+    {% for c in cats %}
+        <!--<li><a href="{% url 'bar' c.nombre %}">{{ c.nombre }}</a></li>-->
+        <li> 
+        	<a href="/app/bar/{{ c.nombre }}/add_tapa">{{ c.nombre }}<span class="badge">{{c.nrvisitas}}</span></a>
+        </li>
+
+        <!-- 
+        <a href="#">Inbox <span class="badge">42</span></a>
+		-->
+    {% endfor %}
+
+{% else %}
+    <li> <strong >No hay bares.</strong></li>
+
+    </ul>
+{% endif %}

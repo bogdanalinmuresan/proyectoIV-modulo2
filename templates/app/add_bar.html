@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    <h1>Añadir bar</h1>
+    <form id="add_bar" method="post" action=".">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="usr">Nombre bar</label>
+            <input type="text" class="form-control" id="id_bar" name="id_bar" placeholder="Introduce el nombre del bar">
+            
+             <input type="text" class="form-control" id="id_direccion" name="id_direccion" placeholder="Introduce la dirección del bar">
+        </div>
+
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" />Añadir</button>
+    </form>
+{% endblock %}

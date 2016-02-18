@@ -4,55 +4,164 @@
 
 {% block title %}Index{% endblock %}
 
+
+
 {% block body_block %}
-{% if user.is_authenticated %}
-    <div class="page-header">
 
-                <h1>Rango says... hello {{ user.username }}!</h1>
-            {% else %}
-                <h1>Rango says... hello world!</h1>
-            {% endif %}
-    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
 
-         <div class="row placeholders">
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#letragrande').click(function(){
+            curSize= parseInt($('#cuerpo').css('font-size')) + 2;
+            $('#cuerpo').css('font-size', curSize);
+            });  
+      $('#letramaspeque').click(function(){
+            curSize= parseInt($('#cuerpo').css('font-size')) - 2;
+            $('#cuerpo').css('font-size', curSize);
+            });
+      $('#letranormal').click(function(){
+            $('#cuerpo').css('font-size', 14);
+            });
+      $('#bigfont').click(function(){
+            $('#content').css('font-size', 20);
+            $('#titulo').css('font-size', 50);
+            });
+        $('#smallfont').click(function(){
+            $('#content').css('font-size', 8);
+            $('#titulo').css('font-size', 26);
+            });
+    });
+</script>
+
+<!--
+<script>
+    $(document).ready(function () {
+    var chart = new Highcharts.Chart({
+        chart: {
+            type: 'bar',
+            renderTo: 'container'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        },
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }],
+    });
+});
+</script>
+-->
+
+<script>
+    $(document).ready(function () {
+
+        var bares;
+        var visitas;
+
+        $.ajax({
+            url:"{% url 'reclama_visitas' %}",
+            type: 'get',
+            success: function(lista_visitas) {
+               visitas = lista_visitas;
+               Visualiza_charts(bares,visitas);
+               
+            },
+            failure: function(lista_visitas) {
+                alert('error en pedir las visitas');
+            }
+
+        });
+
+        $.ajax({
+            url:"{% url 'reclama_bares' %}",
+            type: 'get',
+            success: function(lista_bares) {
+               bares = lista_bares;
+
+            },
+            failure: function(lista_bares) {
+                alert('error en pedir los bares');
+            }
+
+            
+        }); 
+        
+        function Visualiza_charts(bares,visitas){
+            $(document).ready(function () {
+                console.log(bares );
+                
+                var chart = new Highcharts.Chart({
+                    chart: {
+                        type: 'bar',
+                        renderTo: 'container'
+                    },
+                    title: {
+                        text: 'Visitas de cada bar'
+                    },
+                    xAxis: {
+                        categories: bares
+                    },
+                    yAxis: {
+                        title: {
+                            text: visitas
+                        }
+                    },
+                    series: [{
+                        name: 'Visitas',
+                        data: visitas
+                    }],
+                });
+            });
+
+        }
+          
+            
+    });
+
+</script>
+
+
+        <div class="row placeholders">
             <div class="col-xs-12 col-sm-6 placeholder">
-                 <div class="panel panel-primary">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
-                            <h3 class="panel-title">Categories</h3>
+                        <h3 class="panel-title">Bares</h3>
                     </div>
-                </div>
 
-              {% if categories %}
-                    <ul>
-                        {% for category in categories %}
-                         <li><a href="{% url 'category'  category.slug %}">{{ category.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <strong>There are no categories present.</strong>
-                {% endif %}
+                </div>
+                <br>
+                <button type="button" id="letragrande" class="btn btn-default">Letra Grande</button>
+                <button type="button" id="letramaspeque" class="btn btn-default">Letra más pequeña</button>
+                <button type="button" id="letranormal" class="btn btn-default">Letra normal</button>
+                <br>
+                <br>
+                <div id="container" style="height: 300px"></div>
 
             </div>
             <div class="col-xs-12 col-sm-6 placeholder">
                 <div class="panel panel-primary">
-                        <div class="panel-heading">
-                                <h3 class="panel-title">Pages</h3>
-                        </div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Tapas</h3>
+                    </div>
                 </div>
-
-                {% if pages %}
-                    <ul>
-                        {% for page in pages %}
-                         <li><a href="{{page.url}}">{{ page.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <strong>There are no categories present.</strong>
-                {% endif %}
             </div>
 
-          </div>
+        </div>
 
-
-       <p> visits: {{ visits }}</p>
         {% endblock %}
+

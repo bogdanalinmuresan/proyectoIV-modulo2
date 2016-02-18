@@ -12,16 +12,27 @@ bar.save()
 """
 
 
+class Tapas(Document):
+	nombre=StringField(max_length=40,required=True)
+	nrvotos=IntField()
+	meta = {'collection': 'Tapas'}
+	#with switch_collection(Group,'Tapas') as Group:
+
 class Bares(Document):
 	nombre=StringField(max_length=50,required=True)
 	direccion=StringField(max_length=150,required=True)
 	nrvisitas=IntField()
+	tapas=ListField(ReferenceField(Tapas))
+	meta = {'collection': 'Bares'}
+	#with switch_collection(Group,'Bares') as Group:
 
+class Usuario(Document):
+	username = StringField(max_length=200,required=True)
+	email=EmailField()
+	password =StringField()
+	meta = {'collection': 'usuarios'}
+	#with switch_collection(Group,'usuarios') as Group:
 
-
-class Tapas(Document):
-	nombre=StringField(max_length=40,required=True)
-	nrvotos=IntField()
 
 	#Las tablas de la base de datos
 

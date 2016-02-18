@@ -86,7 +86,7 @@ DATABASES = {
     },
 }
 
-SESSION_ENGINE = 'mongoengine.django.sessions' # optional
+SESSION_ENGINE = "django.contrib.sessions.backends.cache" 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -127,6 +127,7 @@ _MONGODB_DATABASE_HOST=\
     'mongodb://%s:%s@%s/%s'\
     %(_MONGODB_USER,_MONGODB_PASSWD,_MONGODB_HOST,_MONGODB_NAME)
 
+#conecion a mongolab
 mongoengine.connect(_MONGODB_NAME,host=_MONGODB_DATABASE_HOST)
 
 

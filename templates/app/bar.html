@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% block body_block %}
+
+<link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+    {% if category %}
+    <h1>{{ category_name }}</h1>
+       
+        <ul>
+            {% for page in category.tapas %}
+            <li><a href="">{{ page.nombre }}</a></li>
+            {% endfor %}
+        </ul>
+        {% if 'email' in request.session %}
+            <form class="form-signin" id="add_bar" method="post" action=".">
+            {% csrf_token %}
+            
+               
+                <input  type="text" class="form-control" id="id_tapa" name="id_tapa" placeholder="Introduce el nombre de la tapa">
+            
+
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit"  value="Submit" />Añadir tapa</button>
+            </form>
+        {% endif %}
+    {% else %}
+        The specified category {{ category_name }} does not exist!
+    {% endif %}
+
+
+{% endblock %}
