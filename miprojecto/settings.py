@@ -113,6 +113,8 @@ STATICFILES_DIRS = (
     STATIC_PATH,
 )
 
+STATIC_ROOT=os.path.join(PROJECT_DIR,'static')
+
 ##Conexion a la base de datos 
 ##mas info (http://staltz.com/djangoconfi-mongoengine/#/17)
 AUTHENTICATION_BACKENDS = (
