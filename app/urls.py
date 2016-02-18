@@ -6,6 +6,7 @@ from . import views
 from app import views
 from django.conf.urls import url, patterns, include
 
+
 #from app.api import UsuarioResource
 
 #usuario_resource=UsuarioResource()
