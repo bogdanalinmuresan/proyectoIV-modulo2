@@ -1,14 +1,14 @@
 ##	Desplieque en un PaaS : [Heroku](https://www.heroku.com/) 
 
-Instalamos el **toolbelt de heroku** en nuestra máquina
+Descargamos e Instalamos el **toolbelt de heroku** en nuestra máquina 
 
     pip install django-toolbelt
     
- En nuestro proyecto Django creamos el archivo **Procfile**
+ En nuestro proyecto Django creamos el archivo **Procfile** con eso estamos indicando que usamos el servidor WSGI gunicorn.
     
     web: gunicorn miprojecto.wsgi —log-file
     
-Especificamos las dependencias de nuestro proyecto ,en el fichero
+Especificamos las dependencias de nuestro proyecto ,en el fichero,necesario para el despliegue en heroku
 
  **requierements.txt**
 
@@ -27,11 +27,10 @@ whitenoise==2.0.6
 ~~~
 
 
-Despues de registrarnos en Heroku ejecutamos 
-"make heroku " dentro de nuestra app para automatizar el proceso del despliegue 
+Los pasos de comandos para conseguir el despliegue ha sido el siguiente
  
 ~~~
-pip install django-toolbelt
+install django-toolbelt
 heroku login
 heroku create
 git add .
