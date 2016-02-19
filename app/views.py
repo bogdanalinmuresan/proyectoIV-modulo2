@@ -94,6 +94,7 @@ def add_tapa(request,bar_name_url):
     return render(request,'bar.html',context_dict)
 
 def logout(request):
+
     del request.session['email']
     del request.session['authenticated']
     del request.session['username']
@@ -105,9 +106,9 @@ def login(request):
         password=request.POST.get('id_password')
         email=request.POST.get('id_email')
 
-        usuario=Usuario.objects(email=email)[0]
+        usuario=Usuario.objects(email=email)
 
-        #obtener hash la contraseña y comprarla si coinciden
+        #obtener hash la contraseña y compararla, si coinciden
         m = hashlib.md5()
         m.update(password)
         hashPass=m.hexdigest()
@@ -204,7 +205,5 @@ def reclama_visitas(request):
 
     for b in misbares:
         lista_visitas.append(b.nrvisitas)
-        
-    print lista_visitas
 
     return JsonResponse(lista_visitas,safe=False)
