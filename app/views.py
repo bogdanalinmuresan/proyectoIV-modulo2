@@ -94,8 +94,8 @@ def add_tapa(request,bar_name_url):
     return render(request,'bar.html',context_dict)
 
 def logout(request):
-
-    del request.session['email']
+    if 'email' in request.session:
+        del request.session['email']
     del request.session['authenticated']
     del request.session['username']
     return render(request,'index.html')
@@ -106,7 +106,8 @@ def login(request):
         password=request.POST.get('id_password')
         email=request.POST.get('id_email')
 
-        usuario=Usuario.objects(email=email)
+        usuario=Usuario.objects(email=email)[0]
+        print "ususario ", usuario.username
 
         #obtener hash la contraseña y compararla, si coinciden
         m = hashlib.md5()
@@ -164,7 +165,7 @@ def registro(request):
                 #user.switch_collection('usuarios')
                 user.save()
                 res='<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>Usuario existente!</strong> Ya hay un usuario registrado con este correo .</div>'
-                return render(request,'index,html',{'registrado':res})
+                return render(request,'index.html',{'registrado':res})
             
             else:
                 print "existe el ususario en la base de datos",userBD
